@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+html{
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+}
+body{
+    background-color: darkseagreen;
+}
+.box{
+    background-color: white;
+    width: 300px;
+    margin: 0 auto;
+    -webkit-box-shadow: 0px 9px 11px -11px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 9px 11px -11px rgba(66, 68, 90, 1);
+    box-shadow: 0px 9px 11px -11px rgba(66, 68, 90, 1);
+    border-radius: 20px;
+    padding-bottom: 3rem;
+}
+.header {
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.todos{
+    padding: 0 0 1rem 0;
+    margin: 0 auto;
+    width: 60%;
+}
+
+.todo {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    padding-bottom: 0.24rem;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+.todo input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+
+.todo:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+.todo input:checked ~ .checkmark {
+    background-color: darkseagreen;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.todo input:checked ~ .checkmark:after {
+    display: block;
+}
+
+
+.todo .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.add-todo{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.add-todo .input{
+    outline: none;
+    margin: 0 auto;
+    border: none;
+    background-color: #eee;
+    width: 200px;
+    height: 2rem;
+    font-size: 0.8rem;
+
+}
+.add-todo .input:hover{
+    background-color: lightgrey;
+}
+.add-todo .input:focus{
+    background-color: white;
+    border: 1px solid green;
+}
+.button{
+    border: none;
+    background-color: darkseagreen;
+    height: 2rem;
+    margin-left: 4px;
+    color: white;
+    font-weight: bolder;
+    font-size: 0.8rem;
+}
+.button:hover{
+    background-color: white;
+    color: darkseagreen;
+    border: 1px solid darkseagreen;
+}
+.clear-button{
+    display: block;
+    margin-top: 1rem;
+    margin-left: 1rem;
+
+}
+.left-amount{
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+@media (min-width: 530px) {
+    html {
+        font-size: 22px;
+    }
+    .box {
+        width: 450px;
+    }
+    body{
+        padding: 1.5rem;
+    }
+    .add-todo .input {
+        width: 300px;
+    }
+}
