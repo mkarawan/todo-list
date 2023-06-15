@@ -1,6 +1,7 @@
 import React, {useState, useRef, useEffect} from "react";
 import TodoList from "./TodoList";
 import {v4 as uuidv4} from 'uuid';
+import "./App.css";
 
 
 const LOCAL_STORAGE_KEY = 'todoApp.todos'
@@ -26,7 +27,7 @@ function App() {
     }
     function handleAddTodo(e) {
         const name = todoNameRef.current.value
-        if (name == '') return
+        if (name === '') return
         setTodos(prevTodos => {
             return [...prevTodos, {id: uuidv4(), name: name, complete: false}]
         })
@@ -38,11 +39,17 @@ function App() {
     }
     return (
         <>
-            <TodoList todos={todos} toggleTodo={toggleTodo}/>
-            <input ref={todoNameRef} type="text"/>
-            <button onClick={handleAddTodo}>Add ToDo</button>
-            <button onClick={handleClearTodo}>Clear Completed</button>
-            <div>{todos.filter(todo => !todo.complete).length}left to do</div>
+            <div className={"box"}>
+            <h1 className={"header"}>TO DO LIST</h1>
+            <div className={"todos"}> <TodoList todos={todos} toggleTodo={toggleTodo}/></div>
+            <div className={"left-amount"}>{todos.filter(todo => !todo.complete).length} left to do</div>
+            <div className={"add-todo"}>
+                <input className={"input"} ref={todoNameRef} type="text"/>
+                <button className={"button"} onClick={handleAddTodo}>Add ToDo</button>
+            </div>
+            <button className={"button clear-button"} onClick={handleClearTodo}>Clear Completed</button>
+            </div>
+
         </>
     )
 }
